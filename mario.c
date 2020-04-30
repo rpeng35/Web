@@ -8,16 +8,16 @@ int main(void)
     {
         n = get_int("Height: ");
     }
-    while(1 > n || n > 8);
+    while (1 > n || n > 8);
 
     for (int i = 0; i < n; i++)
     {
-        for(int j = 0; j < n; j++)
+        for (int j = 0; j < n; j++)
         {
-            if(i + j < n - 1)
+            if (i + j < n - 1)
                 printf(" ");
             else
-                printf("#");
+                printf("#");      
         }
         printf("\n");
     }
