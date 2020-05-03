@@ -13,9 +13,9 @@ int main(void)
     {
         if (isalpha(text[i]))
             num_letters++;
-        else if ((i == 0 && text[i] != ' ') || (i != len - 1 && text[i] == ' ' && text[i + 1] != ' '))
+        if ((i == 0 && text[i] != ' ') || (i != len - 1 && text[i] == ' ' && text[i + 1] != ' '))
             num_words++;
-        else if (text[i] == '.' || text[i] == '?' || text[i] == '!')
+        if (text[i] == '.' || text[i] == '?' || text[i] == '!')
             num_sentences++;
     }
     float L = ((float) num_letters / (float) num_words) * 100;
