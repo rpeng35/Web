@@ -9,6 +9,7 @@ int main(void)
     string text = get_string("Text: ");
     int num_words, num_letters, num_sentences;
     num_words = num_letters = num_sentences = 0;
+    
     for (int i = 0, len = strlen(text); i < len; i++)
     {
         if (isalpha(text[i]))
@@ -20,7 +21,7 @@ int main(void)
     }
     float L = ((float) num_letters / (float) num_words) * 100;
     float S = ((float) num_sentences / (float) num_words) * 100;
-    int index = round(0.058 * L - 0.296 * S - 15.8);
+    int index = round(0.0588 * L - 0.296 * S - 15.8);
     
     if (index < 1)
         printf("Before Grade 1\n");
