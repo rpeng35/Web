@@ -28,8 +28,8 @@ int main(int argc, string argv[])
             if (islower(c))
             {
                 c1 = 'a';
-                printf("%c", (c - c1 +key) % 26 + c1);
             }
+            printf("%c", (c - c1 +key) % 26 + c1);
         }
         else 
         {
@@ -38,6 +38,7 @@ int main(int argc, string argv[])
     }
     printf("\n");
 }
+
 bool check_key(string s)
 {
     for (int i = 0, len = strlen(s); i < len; i++)
