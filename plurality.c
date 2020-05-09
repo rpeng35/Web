@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 // Max number of candidates
 #define MAX 9
 
@@ -63,10 +64,9 @@ int main(int argc, string argv[])
     print_winner();
 }
 
-// Update vote totals given a new vote
 bool vote(string name)
 {
-    for (int i = 0; i < candidates_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp (name, candidates[i].name) == 0)
         {
@@ -78,19 +78,30 @@ bool vote(string name)
 }
 
 // Print the winner (or winners) of the election
-void print_winner(void)
+int get_max(void)
 {
-    for (int i = 0; i < candidates_count; i++)
+    int max = candidates[0].votes;
+    for (int i = 0; i < candidate_count; i++)
     {
-        int max = candidate[i].votes
-        if (candidate[i].votes > max)
+        if (candidates[i].votes > max)
         {
-            max = candidates[i].votes
+            max = candidates[i].votes;
         }
     }
-    if (max = candidates[i].votes)
-    {
-        printf(candidates[i].name)
-    }
+    return max;
 }
 
+
+
+void print_winner(void)
+{
+    int max = get_max();
+    
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (max == candidates[i].votes)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
+}
