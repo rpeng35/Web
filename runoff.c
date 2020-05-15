@@ -153,7 +153,6 @@ void tabulate(void)
             }
         }
     }
-    return;
 }
 
 // Print the winner of the election, if there is one
@@ -201,7 +200,7 @@ bool is_tie(int min)
     {
         if (!candidates[i].eliminated)
         {
-            if (candidates[i].votes == min)
+            if (candidates[i].votes != min)
             {
                 return false;
             }
