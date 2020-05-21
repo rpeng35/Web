@@ -67,9 +67,9 @@ RGBTRIPLE get_blurred_image (int i, int j, int height, int width, RGBTRIPLE imag
     int red, green, blue; red = green = blue = 0;
     int numPixel = 0;
     
-    for (int di = -1; di < 2; di++)
+    for (int di = -1; di <= 1; di++)
     {
-        for (int dj = -1; dj < 2; dj++)
+        for (int dj = -1; dj <= 1; dj++)
         {
             int new_i = i + di;
             int new_j = j + dj;
