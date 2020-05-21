@@ -3,7 +3,7 @@
 #include <cs50.h>
 #include <stdint.h>
 
-
+//read 512 bytes from card.raw 
 #define BLOCK_SIZE 512
 #define FILE_NAME_SIZE 8
 
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover image\n");
         return 1;
     }
-    
+    //open file and check for NULL
     FILE *file = fopen(argv[1], "r");
     if (file == NULL)
     {
@@ -31,10 +31,13 @@ int main(int argc, char *argv[])
     FILE *outfile;
     while (fread(buffer, BLOCK_SIZE, 1, file))
     {
+        //helper -> new_jpg
+        //find first jpg
         if (new_jpg(buffer))
         {
             if (!first_jpg)
             {
+                //change the boolean value if found
                 first_jpg = true;
             }
             else
@@ -53,6 +56,7 @@ int main(int argc, char *argv[])
         }
         else if (first_jpg)
         {
+            //first jpg found; continue writing the bytes
             fwrite(buffer, BLOCK_SIZE, 1, outfile);
         }
     }
@@ -62,6 +66,7 @@ int main(int argc, char *argv[])
 
 bool new_jpg(BYTE buffer[])
 {
+    //check if it's the beginning of jpg file
     return buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0;
 }
 
