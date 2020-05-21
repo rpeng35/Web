@@ -74,7 +74,7 @@ RGBTRIPLE get_blurred_image (int i, int j, int height, int width, RGBTRIPLE imag
             int new_i = i + di;
             int new_j = j + dj;
                     
-            if (i >= 0 && i < height && j >= 0 && j < width)
+            if (new_i >= 0 && new_i < height && new_j >= 0 && new_j < width)
             {
                 numPixel++;
                 red += image[new_i][new_j].rgbtRed;
