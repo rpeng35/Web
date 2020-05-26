@@ -38,7 +38,7 @@ bool check(const char *word)
     int index = hash(check_word);
     if (table[index] != NULL)
     {
-        for (node *nodeptr = table[index]; nodeptr != NULL; nodeptr = nodeptr->next)
+        for (node *nodeptr = table[index]; nodeptr!=NULL; nodeptr = nodeptr->next)
         {
             if (strcmp(nodeptr->word, check_word) == 0)
             {
@@ -76,7 +76,6 @@ bool load(const char *dictionary)
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
-        fprintf(stderr, "file does not exist!\n");
         return false;
     }
     for (int i = 0; i < N; i++)
@@ -100,7 +99,7 @@ bool load(const char *dictionary)
             
         strcpy(new_nodeptr->word, word);
         int index = hash(word);
-        new_nodeptr = table[index];
+        new_nodeptr->next = table[index];
         table[index] = new_nodeptr;
 
     }
