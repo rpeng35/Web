@@ -33,11 +33,13 @@ bool check(const char *word)
     strcpy(check_word, word);
     for (int i = 0; check_word[i] != '\0'; i++)
     {
+        //converts to all lowercase letters
         check_word[i] = tolower(check_word[i]);
     }
     int index = hash(check_word);
     if (table[index] != NULL)
     {
+        //check if the current word is in the hashtable 
         for (node *nodeptr = table[index]; nodeptr!=NULL; nodeptr = nodeptr->next)
         {
             if (strcmp(nodeptr->word, check_word) == 0)
@@ -65,6 +67,7 @@ unsigned int hash(const char *word)
         {
             n = 27;
         }
+        // returns an index up to n-1
         hash = ((hash << 3) +  n) % N;
     }
     return hash;
@@ -73,6 +76,7 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
+    //opens dictionary file
     FILE *dict = fopen(dictionary, "r");
     if (dict == NULL)
     {
@@ -86,6 +90,7 @@ bool load(const char *dictionary)
     node *new_nodeptr;
     while (fscanf(dict, "%s", word) != EOF)
     {
+        //scan and count the number of words
         num_words++;
         do
         {
@@ -97,8 +102,10 @@ bool load(const char *dictionary)
         }
         while (new_nodeptr == NULL);
             
+        //copying to our new_nodeptr
         strcpy(new_nodeptr->word, word);
         int index = hash(word);
+        //adding the new_nodeptr(new word) to the list
         new_nodeptr->next = table[index];
         table[index] = new_nodeptr;
 
