@@ -12,4 +12,4 @@ for i in rows:
     if i["middle"] != None:
         print(i["first"], i["middle"], i["last"] + ",", i["birth"])
     else:
-        print(i["first"], i["last"] + ",", i["birth"])submit50 cs50/problems/2020/x/houses
+        print(i["first"], i["last"] + ",", i["birth"])
