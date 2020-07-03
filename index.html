@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>My Webpage</title>
+    </head>
+    <h1>Ryan's Blog</h1>
+    <div>
+        <button id="dark" type="button" class="btn btn-dark">Dark Theme</button>
+        <button id="white" type="button" class="btn btn-light">Light</button>
+    </div>
+        <script>
+        let body = document.querySelector('body');
+            document.querySelector('#dark').onclick = function() {
+                body.style.backgroundColor = "black";
+                document.querySelector('h1').style.color = "white";
+                document.querySelector('h2').style.color = "white";
+                document.querySelector('body').style.color = "white";
+            }
+            document.querySelector('#white').onclick = function() {
+                body.style.backgroundColor = "white";
+                document.querySelector('h1').style.color = "black";
+                document.querySelector('h2').style.color = "black";
+                document.querySelector('body').style.color = "black";
+            }
+        </script>
+    <body>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <li class="breadcrumb-item"><a href="projects.html">Personal Projects</a></li>
+                <li class="breadcrumb-item"><a href="interviewquestions.html">Question of the Day</a></li>
+            </ol>
+        <h2>About</h2>
+        <div>
+            <img class="vertical" src="me.jpeg">
+        </div>
+        <p>2nd year student in UBC, majoring in Mathematics. I've taken a Python course in first year which got me really into CS.</p>
+        <p>After that, the soul searching process officially began. Since what I learned from that class is only the tip of the iceberg,</p>
+        <p>I self-learned C/C++, Swift, Javascript, and SQL. I found that knowing how to google search for the code needed for the task</p>
+        <p>(stackoverflow) is a really important skill to have. Now that I have looked a little bit into web development, I am truly</p>
+        <p>amazed by how creativity can also be useful in the world of CS. "Art of Automation" - is my definition for CS.</p>
+        <div class="alert alert-secondary" role="alert">
+            <a href="hobbies.html">More about me -></a>
+
+        </div>
+        <a href="https://www.facebook.com/profile.php?id=100000878596933" class="fa fa-facebook"></a>
+        <a href="https://www.instagram.com/peng_ryan/" class="fa fa-instagram"></a>
+    </body>
+
+</html>
